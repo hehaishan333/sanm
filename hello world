@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style tpye="text/css">
+div{width:500px;height:300px;position: absolute;left:433px;}
+div ul li{list-style-type: none;float:left;margin-left: 15px;width:20px;
+     height:20px;border-radius:20px;border:1px solid #000;text-align: center;
+
+}
+div ul{position: relative;left: 120px;top:-60px;}
+.btn{background-color:red;}
+</style>
+</head>
+<body>
+	<div id="dv">
+<img src=".//inmages/1.jpg" id="tup" onmouseover="stop()" onmouseout="stat()">
+  <ul>
+ <li onmouseover="stop(1)" onmouseout="stat()" class="btn">1</li>
+   <li onmouseover="stop(2)" onmouseout="stat()">2</li>
+    <li onmouseover="stop(3)" onmouseout="stat()">3</li>
+      <li onmouseover="stop(4)" onmouseout="stat()">4</li>
+  </ul>
+	</div>
+<script type="text/javascript">
+var divobj=document.getElementById("dv")
+var liobj =document.getElementsByTagName("li")
+
+var lb=document.getElementById("tup")
+  ds   =setInterval("lbt()",1000)
+    var i=2
+function lbt(){
+	for(j=0;j<liobj.length;j++){liobj[j].removeAttribute("class")}
+liobj[i-1].setAttribute("class","btn")
+
+lb.src=".//inmages/"+i+".jpg";
+i++
+if(i>4){i=1}
+}
+function stop(id){ if(id){
+  i=id
+  lbt()
+}
+	clearInterval(ds)}
+function stat(){ ds=setInterval("lbt()",1000)   
+
+}
+</script>
+</body>
+</html>
